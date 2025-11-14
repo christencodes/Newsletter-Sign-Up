@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="success-container no-display">
+      <object data="/assets/images/icon-success.svg" type="image/svg+xml">
+        Not Supported
+      </object>
+      <!-- <img src="/assets/images/icon-list.svg" alt="" /> -->
+      <h2>Thanks for subscribing!</h2>
+      <p>
+        A confirmation email has been sent to
+        <span>EMAIL HERE</span>. Please open it and click the button inside to
+        confirm your subscription.
+      </p>
+      <button type="">Dismiss message</button>
+    </div>
+    <div class="card-container">
+      <div class="card-left">
+        <div class="card-left-info">
+          <h1>Stay updated!</h1>
+          <p>Join 60,000+ product managers receiving monthly updates on:</p>
+          <ul>
+            <li>Product discovery and building what matters</li>
+            <li>Measuring to ensure updates are a success</li>
+            <li>And much more!</li>
+          </ul>
+
+          <form class="form" id="form">
+            <label for="email">Email address</label>
+            <input
+              type="text"
+              name="email"
+              id="Email"
+              placeholder="email@company.com"
+            />
+          </form>
+          <button type="submit">Subscribe to monthly newsletter</button>
+        </div>
+      </div>
+      <div class="card-right">
+        <picture>
+          <source
+            srcset="assets\images\illustration-sign-up-mobile.svg"
+            media="(width <= 375px)"
+          />
+          <source
+            srcset="assets\images\illustration-sign-up-desktop.svg"
+            media="(width >= 375px)"
+          />
+          <img
+            src="/assets/images/illustration-sign-up-desktop.svg"
+            alt="illustration"
+          />
+        </picture>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

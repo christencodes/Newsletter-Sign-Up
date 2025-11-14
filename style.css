@@ -1,0 +1,277 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+/* img {
+  min-width: 100%;
+  max-height: 100%;
+} */
+
+ul,
+li {
+  font: inherit;
+}
+
+:root {
+  --red: hsl(4, 100%, 67%);
+  --blue800: hsl(234, 29%, 20%);
+  --blue700: hsl(235, 18%, 26%);
+  --grey: hsl(0, 0%, 58%);
+  --white: hsl(0, 0%, 100%);
+
+  /* Font */
+  --default-font-size: 16px;
+  --default-font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: var(--blue700);
+  display: grid;
+  place-content: center;
+  font-size: var(--default-font-size);
+  font-family: var(--default-font-family);
+}
+
+.success-container {
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+
+  justify-content: center;
+
+  gap: 1.75rem;
+
+  width: 320px;
+  height: 340px;
+
+  padding: 2.5rem 3rem;
+  border-radius: 2rem;
+}
+
+/* update with JS */
+.success-container span {
+  font-weight: 700;
+  /* change the content to the user email */
+}
+.success-container svg {
+  display: block;
+}
+.success-container object {
+  width: 50px;
+}
+
+.success-container h2 {
+  font-size: 2.8rem;
+  color: var(--blue800);
+  line-height: 1;
+}
+
+.success-container p {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  width: 100%;
+}
+
+.success-container button {
+  display: inline-block;
+  min-width: 100%;
+  padding: 1rem;
+  border: none;
+  background-color: var(--blue800);
+  color: var(--white);
+  font-size: 0.8rem;
+  /* border: 1px solid var(--blue800); */
+  border-radius: 0.3rem;
+}
+
+.success-container button:hover {
+  background-image: linear-gradient(
+    to right,
+    hsl(25, 100%, 67%) 0%,
+    hsl(25, 100%, 67%) 30%,
+    hsl(4, 100%, 67%) 80%,
+    hsl(4, 100%, 67%) 90%
+  );
+
+  filter: drop-shadow(0px 15px 24px hsla(4, 100%, 67%, 0.666));
+}
+.card-container {
+  justify-self: center;
+  align-self: center;
+  height: 87%;
+  width: 600px;
+  background-color: var(--white);
+  display: flex;
+  gap: 1rem;
+
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+}
+
+.card-container > * {
+  flex-shrink: 1;
+  flex-grow: 1;
+}
+/* card-right */
+.card-right {
+  flex-basis: auto;
+}
+
+.card-right picture {
+  height: 100%;
+  width: 100%;
+}
+
+.card-right picture img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+/* card-left */
+.card-left {
+  flex-grow: 0;
+  flex-basis: 50%;
+  font-size: 1rem;
+
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-left-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding-left: 1rem;
+  padding-right: 1rem;
+  gap: 1rem;
+}
+
+.card-left h1 {
+  font-size: 2.5rem;
+  color: var(--blue700);
+}
+
+.card-left p {
+  font-size: 0.7rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+.card-left ul {
+  list-style-type: none;
+  width: 100%;
+  margin-bottom: 8px;
+}
+.card-left ul li {
+  font-size: 0.7rem;
+  padding-bottom: 0.7rem;
+  justify-content: left;
+}
+
+.card-left li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.card-left li::before {
+  content: "";
+  display: inline-block;
+  background-image: url(/assets/images/icon-list.svg);
+  width: 15px;
+  height: 15px;
+  background-size: 15px 15px;
+  background-repeat: no-repeat;
+}
+
+.card-left form {
+  min-width: 100%;
+}
+
+.card-left form.error input {
+  border: 1px solid red;
+}
+
+.card-left label {
+  font-size: 0.5rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.card-left input {
+  box-sizing: border-box;
+  min-width: 100%;
+  padding: 0.8rem 0;
+  text-indent: 10px;
+  border: 1px solid var(--grey);
+  border-radius: 0.3rem;
+  font-size: 0.65rem;
+}
+
+.card-left input:hover {
+  outline: none;
+}
+
+.card-left button {
+  display: inline-block;
+  min-width: 100%;
+  padding: 0.8rem;
+  border: none;
+  background-color: var(--blue800);
+  color: var(--white);
+  font-size: 0.65rem;
+  /* border: 1px solid var(--blue800); */
+  border-radius: 0.3rem;
+}
+
+.card-left button:hover {
+  background-image: linear-gradient(
+    to right,
+    hsl(25, 100%, 67%) 0%,
+    hsl(25, 100%, 67%) 30%,
+    hsl(4, 100%, 67%) 80%,
+    hsl(4, 100%, 67%) 90%
+  );
+
+  filter: drop-shadow(0px 15px 24px hsla(4, 100%, 67%, 0.666));
+  /* This, for some reason, caused more problems than it's worth! */
+  /* border: 1px solid transparent; */
+}
+
+/* .card-left button {
+  border-image: linear-gradient(
+    to right,
+    hsla(4, 100%, 67%, 0.689),
+    hsl(25, 100%, 67%)
+  );
+} */
+
+/* utility */
+
+.no-display {
+  display: none;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+@media (width <= 375px) {
+}
