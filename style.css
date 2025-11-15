@@ -390,7 +390,7 @@ body {
     margin: 0.1rem;
     content: "";
     display: block;
-    background-image: url(/assets/images/icon-list.svg);
+    background-image: url('./assets/images/icon-list.svg');
     width: 20px;
     height: 20px;
     /* Fixed - please remember this */
