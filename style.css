@@ -218,7 +218,7 @@ body {
   margin: 0.1rem;
   content: "";
   display: block;
-  background-image: url(./assets/images/icon-list.svg);
+  background-image: url('./assets/images/icon-list.svg');
   width: 15px;
   height: 15px;
   /* Fixed - please remember this */
