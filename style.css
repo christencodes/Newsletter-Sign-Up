@@ -3,11 +3,12 @@
 *::before {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html,
 body {
-  height: 100vh;
+  height: 100%;
 }
 
 /* img {
@@ -38,23 +39,34 @@ body {
   place-content: center;
   font-size: var(--default-font-size);
   font-family: var(--default-font-family);
+  border: 1px solid red;
+  padding: 1rem;
+  height: 100%;
 }
-
+/* This is success! */
+/* ------------------------------------------- */
 .success-container {
   background-color: var(--white);
   display: flex;
   flex-direction: column;
+  align-items: start;
+  justify-content: start;
   justify-self: center;
-
-  justify-content: center;
 
   gap: 1.75rem;
 
-  width: 320px;
-  height: 340px;
+  width: 50%;
+  height: 100%;
 
-  padding: 2.5rem 3rem;
+  padding: 2.5rem 3.7rem;
   border-radius: 2rem;
+
+  flex-shrink: 1;
+  flex-wrap: nowrap;
+}
+
+.success-container > * {
+  flex: 1;
 }
 
 /* update with JS */
@@ -62,15 +74,14 @@ body {
   font-weight: 700;
   /* change the content to the user email */
 }
-.success-container svg {
-  display: block;
-}
+
 .success-container object {
   width: 50px;
 }
 
 .success-container h2 {
-  font-size: 2.8rem;
+  flex: 1;
+  font-size: clamp(1rem, 0.1rem + 5vw, 3rem);
   color: var(--blue800);
   line-height: 1;
 }
@@ -78,11 +89,9 @@ body {
 .success-container p {
   font-size: 0.8rem;
   line-height: 1.7;
-  width: 100%;
 }
 
 .success-container button {
-  display: inline-block;
   min-width: 100%;
   padding: 1rem;
   border: none;
@@ -104,11 +113,16 @@ body {
 
   filter: drop-shadow(0px 15px 24px hsla(4, 100%, 67%, 0.666));
 }
+
+/* ------------------------------------------- */
 .card-container {
   justify-self: center;
   align-self: center;
+  /* height: max(600px, min-content); */
+
   height: 87%;
-  width: 600px;
+  width: min(600px, 90%);
+
   background-color: var(--white);
   display: flex;
   gap: 1rem;
@@ -129,6 +143,7 @@ body {
 .card-right picture {
   height: 100%;
   width: 100%;
+  flex-shrink: 0;
 }
 
 .card-right picture img {
@@ -141,11 +156,12 @@ body {
 
 /* card-left */
 .card-left {
-  flex-grow: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
   flex-basis: 50%;
   font-size: 1rem;
 
-  padding: 1rem;
+  /* padding: 1rem; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -155,22 +171,25 @@ body {
 .card-left-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   justify-content: center;
 
   padding-left: 1rem;
   padding-right: 1rem;
-  gap: 1rem;
+  gap: clamp(0.5rem, 0.1rem + 1vw, 1rem);
+
+  flex: 1;
 }
 
 .card-left h1 {
-  font-size: 2.5rem;
+  font-size: clamp(1.4rem, 0.5rem + 2.5vw, 2rem);
   color: var(--blue700);
 }
 
 .card-left p {
   font-size: 0.7rem;
   margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
   line-height: 1.4;
 }
 .card-left ul {
@@ -190,13 +209,20 @@ body {
   justify-content: center;
   gap: 0.5rem;
 }
+
+/* .card-left li > * {
+  flex: 1;
+} */
 .card-left li::before {
+  flex-shrink: 0;
+  margin: 0.1rem;
   content: "";
-  display: inline-block;
+  display: block;
   background-image: url(/assets/images/icon-list.svg);
   width: 15px;
   height: 15px;
-  background-size: 15px 15px;
+  /* Fixed - please remember this */
+  background-size: contain;
   background-repeat: no-repeat;
 }
 
@@ -205,7 +231,7 @@ body {
 }
 
 .card-left form.error input {
-  border: 1px solid red;
+  border: 2px solid hsl(0, 100%, 60%);
 }
 
 .card-left label {
@@ -230,7 +256,7 @@ body {
 }
 
 .card-left button {
-  display: inline-block;
+  display: block;
   min-width: 100%;
   padding: 0.8rem;
   border: none;
@@ -266,12 +292,253 @@ body {
 /* utility */
 
 .no-display {
-  display: none;
+  display: none !important;
 }
 
 .hidden {
-  visibility: hidden;
+  visibility: hidden !important;
 }
 
 @media (width <= 375px) {
+  /* Need to move image to the first slot */
+  body {
+    display: flex;
+
+    background-color: var(--blue700);
+    font-size: var(--default-font-size);
+    font-family: var(--default-font-family);
+    border: none;
+    padding: 0;
+    height: 100%;
+  }
+
+  .card-container {
+    /* justify-self: center;
+    align-self: center; */
+    height: 87%;
+    width: min(600px, 90%);
+    background-color: var(--white);
+    display: flex;
+    gap: 1rem;
+
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+  }
+
+  .card-container {
+    display: grid;
+    justify-self: stretch;
+    align-self: stretch;
+    height: 100%;
+    width: 100%;
+    flex-shrink: 0;
+    flex-basis: 100%;
+    background-color: var(--white);
+
+    gap: 0;
+
+    /* padding: 0.8rem; */
+    border-radius: 0;
+    padding: 0;
+  }
+
+  /* card left */
+  .card-container .card-left {
+    order: 1;
+    padding: 0 2rem;
+  }
+
+  .card-left-info {
+    align-items: start;
+    padding: 0;
+    margin: 0;
+  }
+
+  .card-left h1 {
+    font-size: 2.2rem;
+    color: var(--blue700);
+  }
+
+  .card-left p {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+  .card-left ul {
+    list-style-type: none;
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .card-left ul li {
+    font-size: 0.9rem;
+    padding-bottom: 0.7rem;
+    justify-content: left;
+  }
+
+  .card-left li {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  /* .card-left li > * {
+  flex: 1;
+} */
+  .card-left li::before {
+    flex-shrink: 0;
+    margin: 0.1rem;
+    content: "";
+    display: block;
+    background-image: url(/assets/images/icon-list.svg);
+    width: 20px;
+    height: 20px;
+    /* Fixed - please remember this */
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .card-left form {
+    min-width: 100%;
+  }
+
+  .card-left form.error input {
+    border: 2px solid hsl(0, 100%, 60%);
+  }
+
+  .card-left label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-left input {
+    box-sizing: border-box;
+    min-width: 100%;
+    padding: 1.2rem 0;
+    text-indent: 10px;
+    border: 1px solid var(--grey);
+    border-radius: 0.3rem;
+    font-size: 0.65rem;
+  }
+
+  .card-left input:hover {
+    outline: none;
+  }
+
+  .card-left button {
+    display: inline-block;
+    min-width: 100%;
+    padding: 1.2rem;
+    border: none;
+    background-color: var(--blue800);
+    color: var(--white);
+    font-size: 0.65rem;
+    /* border: 1px solid var(--blue800); */
+    border-radius: 0.3rem;
+  }
+
+  .card-left button:hover {
+    background-image: linear-gradient(
+      to right,
+      hsl(25, 100%, 67%) 0%,
+      hsl(25, 100%, 67%) 30%,
+      hsl(4, 100%, 67%) 80%,
+      hsl(4, 100%, 67%) 90%
+    );
+
+    filter: drop-shadow(0px 15px 24px hsla(4, 100%, 67%, 0.666));
+  }
+
+  .card-right picture {
+    height: 100%;
+    width: 100%;
+    flex-shrink: 0;
+    flex-basis: 100%;
+    border-radius: 0;
+  }
+
+  .card-right picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    overflow: hidden;
+  }
+
+  /* success container */
+  .success-container {
+    background-color: var(--white);
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+    gap: 1.75rem;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 1rem;
+    border-radius: 0;
+  }
+
+  /* update with JS */
+  .success-container span {
+    font-weight: 700;
+    /* change the content to the user email */
+  }
+
+  .success-container object {
+    width: 70px;
+  }
+
+  .success-container h2 {
+    font-size: clamp(1rem, 1rem + 4vw, 2.8rem);
+    color: var(--blue800);
+    line-height: 1;
+  }
+
+  .success-container p {
+    font-size: 0.8rem;
+    line-height: 1.7;
+  }
+
+  .success-container button {
+    /* margin-top: 10rem; */
+    min-width: 100%;
+    padding: 1rem;
+    border: none;
+    background-color: var(--blue800);
+    color: var(--white);
+    font-size: 0.9rem;
+    /* border: 1px solid var(--blue800); */
+    border-radius: 0.3rem;
+  }
+
+  .success-container button:hover {
+    background-image: linear-gradient(
+      to right,
+      hsl(25, 100%, 67%) 0%,
+      hsl(25, 100%, 67%) 30%,
+      hsl(4, 100%, 67%) 80%,
+      hsl(4, 100%, 67%) 90%
+    );
+
+    filter: drop-shadow(0px 15px 24px hsla(4, 100%, 67%, 0.666));
+  }
+}
+
+@media (width <= 401px) {
+  body {
+    padding: 0;
+  }
+  .card-container {
+    width: 450px !important;
+  }
+
+  .card-container > * {
+    flex-shrink: 0;
+  }
 }

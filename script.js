@@ -16,7 +16,11 @@ const submit = document.querySelector('button[type="submit"]');
 const success_container = document.querySelector(".success-container");
 
 const dismiss_button = success_container.querySelector("button");
-console.log(dismiss_button);
+
+const success_span = success_container.querySelector("span");
+console.log(success_span);
+
+let userEmail;
 
 function validateEmail(email) {
   //will return true if email is valid
@@ -32,8 +36,11 @@ submit.addEventListener("click", (e) => {
   console.log("---------------ITS ALIVE!");
 
   if (validateEmail(emailInput.value)) {
+    userEmail = emailInput.value;
+    success_span.textContent = userEmail;
     form.classList.remove("error");
     cardContainer.classList.add("no-display");
+    cardContainer.classList.add("hidden");
     success_container.classList.remove("no-display");
   } else {
     form.classList.add("error");
@@ -50,6 +57,7 @@ dismiss_button.addEventListener("click", (e) => {
   success_container.classList.add("no-display");
   //add card container
   cardContainer.classList.remove("no-display");
+  cardContainer.classList.remove("hidden");
 });
 
 //window onload check if window is greater than or less than 375px!
